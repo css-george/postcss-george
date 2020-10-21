@@ -1,0 +1,33 @@
+{
+  "name": "postcss-george",
+  "version": "1.0.0",
+  "description": "A plugin for PostCSS to allow runtime manipulation of variables.",
+  "main": "index.js",
+  "author": "Darryl Pogue <darryl@dpogue.ca>",
+  "license": "MIT",
+  "repository": "github:css-george/postcss-george",
+  "keywords": [
+      "css",
+      "postcss",
+      "postcss-plugin",
+      "css-george",
+      "css variables"
+  ],
+  "scripts": {
+    "lint": "eslint .",
+    "test": "tap test/*.js",
+    "preversion": "npm test"
+  },
+  "peerDependencies": {
+    "postcss": "^8.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.5.0",
+    "postcss": "^8.0.0",
+    "tap": "^14.10.7"
+  },
+  "tap": {
+    "check-coverage": true,
+    "reporter": "spec"
+  }
+}
