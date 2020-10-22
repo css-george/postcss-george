@@ -7,14 +7,14 @@
   "license": "MIT",
   "repository": "github:css-george/postcss-george",
   "files": [
-      "index.js"
+    "index.js"
   ],
   "keywords": [
-      "css",
-      "postcss",
-      "postcss-plugin",
-      "css-george",
-      "css variables"
+    "css",
+    "postcss",
+    "postcss-plugin",
+    "css-george",
+    "css variables"
   ],
   "scripts": {
     "lint": "eslint .",
