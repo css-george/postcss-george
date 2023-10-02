@@ -28,7 +28,7 @@
   "devDependencies": {
     "eslint": "^8.0.0",
     "postcss": "^8.0.0",
-    "tap": "^16.0.0"
+    "tap": "^18.4.2"
   },
   "tap": {
     "check-coverage": true,
