@@ -1,4 +1,4 @@
-const test = require('tap').test;
+const test = require('node:test');
 const postcss = require('postcss');
 const plugin = require('../index.js');
 
@@ -38,12 +38,11 @@ test('simple annotation', async function(t) {
 
     const result = await process(input);
 
-    t.ok(result.match(/georgeMappingURL=\S+/), 'has a mapping URL');
+    t.assert.match(result, /georgeMappingURL=\S+/, 'has a mapping URL');
 
     const mapping = parseMapping(result);
 
-    t.ok(mapping['variable'] === 'blue', 'maps the exported variable');
-    t.end();
+    t.assert.equal(mapping['variable'], 'blue', 'maps the exported variable');
 });
 
 
@@ -65,10 +64,9 @@ test('multiple variables', async function(t) {
 
     const mapping = await processAndParse(input);
 
-    t.ok(Object.keys(mapping).length === 2, 'has the right number of exported variables');
-    t.ok(!mapping.hasOwnProperty('not-exported'), 'excludes non-exported variables');
-    t.ok(mapping['div-color'] === 'red', 'includes all exported variables');
-    t.end();
+    t.assert.equal(Object.keys(mapping).length, 2, 'has the right number of exported variables');
+    t.assert.ok(!mapping.hasOwnProperty('not-exported'), 'excludes non-exported variables');
+    t.assert.equal(mapping['div-color'], 'red', 'includes all exported variables');
 });
 
 
@@ -81,6 +79,5 @@ test('stripping comments', async function(t) {
 
     const result = await process(input, { stripGeorgeComments: true });
 
-    t.ok(!result.match(/\@export/), 'removes @export comments');
-    t.end();
+    t.assert.doesNotMatch(result, /\@export/, 'removes @export comments');
 });
