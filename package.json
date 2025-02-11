@@ -18,7 +18,7 @@
   ],
   "scripts": {
     "lint": "eslint",
-    "test": "tap test/*.js",
+    "test": "node --test --experimental-test-coverage --test-reporter=spec",
     "preversion": "npm run lint && npm test",
     "postversion": "git push && git push --tags"
   },
@@ -27,11 +27,6 @@
   },
   "devDependencies": {
     "eslint": "^9.20.0",
-    "postcss": "^8.0.0",
-    "tap": "^16.0.0"
-  },
-  "tap": {
-    "check-coverage": true,
-    "reporter": "spec"
+    "postcss": "^8.0.0"
   }
 }
